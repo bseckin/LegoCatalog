@@ -50,12 +50,12 @@
             </Grid.ColumnDefinitions>
 
             <Label Content="Description" Grid.Column="0" Grid.Row="0" VerticalAlignment="Center"/>
-            <TextBox Text="{Binding CurrentLegoItem.Description}" Grid.Column="1" Grid.Row="0" VerticalAlignment="Center" Margin="5"/>
+            <TextBox Text="{ Binding CurrentLegoItem.Description, UpdateSourceTrigger=PropertyChanged }" Grid.Column="1" Grid.Row="0" VerticalAlignment="Center" Margin="5"/>
 
             <Label Content="Number of Parts" Grid.Column="0" Grid.Row="1" VerticalAlignment="Center"/>
-            <TextBox Text="{Binding CurrentLegoItem.AmountParts}" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" Margin="5"/>
+            <TextBox Text="{ Binding CurrentLegoItem.AmountParts, UpdateSourceTrigger=PropertyChanged }" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" Margin="5"/>
 
-            <Image Source="{Binding CurrentLegoItem.Image}" Grid.ColumnSpan="2" Grid.Row="2" Margin="15"/>
+            <Image Source="{ Binding CurrentLegoItem.Image }" Grid.ColumnSpan="2" Grid.Row="2" Margin="15"/>
         </Grid>
     </Grid>
 </Window>
