@@ -8,15 +8,19 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="471.5" Width="838.5">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="115*"/>
+            <RowDefinition Height="32*"/>
+        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="14*"/>
             <ColumnDefinition Width="20*"/>
             <ColumnDefinition Width="35*"/>
         </Grid.ColumnDefinitions>
 
-        <ListBox ItemsSource="{Binding Items}" DisplayMemberPath="Description"></ListBox>
+        <ListBox ItemsSource="{Binding Items}" DisplayMemberPath="Description" Grid.RowSpan="2"></ListBox>
 
-        <ListBox Grid.Column="1" ItemsSource="{Binding Items}" HorizontalAlignment="Center" SelectedItem="{Binding CurrentLegoItem}">
+        <ListBox Grid.Column="1" ItemsSource="{Binding Items}" HorizontalAlignment="Center" SelectedItem="{Binding CurrentLegoItem}" Margin="28,0,29,0" Grid.RowSpan="2">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Border Height="70" Width="170" BorderBrush="Black" BorderThickness="3" CornerRadius="2">
@@ -32,13 +36,14 @@
                                 <Label Content="{Binding Description}" FontSize="10"/>
                                 <Label Content="{Binding AmountParts}" FontSize="10"/>
                             </StackPanel>
+                            <Label Content="{Binding AgeRecom}" Grid.Column="2" Margin="4" VerticalAlignment="Center"></Label>
                         </Grid>
                     </Border>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
 
-        <Grid Grid.Column="2" Margin="10">
+        <Grid Grid.Column="2" Margin="10" Grid.RowSpan="2">
             <Grid.RowDefinitions>
                 <RowDefinition Height="60" />
                 <RowDefinition Height="60" />
@@ -57,5 +62,22 @@
 
             <Image Source="{ Binding CurrentLegoItem.Image }" Grid.ColumnSpan="2" Grid.Row="2" Margin="15"/>
         </Grid>
+
+        <ListBox ItemsSource="{Binding Items}" SelectedItem="{Binding CurrentLegoItem}" Grid.ColumnSpan="3" Grid.Row="1">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderBrush="Black" BorderThickness="1" Width="70" Height="70" Margin="5">
+                        <Image Source="{Binding Image}"/>
+                    </Border>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        
+                    </StackPanel>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+        </ListBox>
     </Grid>
 </Window>
